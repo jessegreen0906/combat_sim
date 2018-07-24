@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (c) 2018. Code contained in this file is written by and the intellectual property of Jesse Green except where otherwise noted. Reuse for educational, open source or reference uses is freely available provided reference to the original source is cited with use. Reuse for commercial purposes is prohibited without the consent of the owner.
+  -->
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Combat Sim</title>
+	<style>
+		form {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		
+		.player-select {
+			width: 45%;
+			flex-shrink: 0;
+			margin: 15px;
+		}
+		
+		.player-select span {
+			display: block;
+		}
+		
+		.combat-interface .start-control {
+			margin: 15px;
+		}
+		
+		#combat-log {
+			min-height: 900px;
+			min-width: 80%;
+			
+			border: solid black 1px;
+			
+			overflow: scroll;
+		}
+		
+		#combat-log td {
+			border: solid black 1px;
+		}
+	</style>
+	
+	<script
+		src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous"></script>
+	
+	<script src="logic.js">
+		
+
+	</script>
+	
+</head>
+<body>
+	<h1>Combat simulator</h1>
+	<div class="combat-interface">
+		<form>
+			<div class="player-select">
+				<span>Player 1</span>
+				<input type="radio" name="player1" id="ranged1" value="ranged" checked> <label for="ranged1">Ranged</label>
+				<input type="radio" name="player1" id="tank1" value="tank"> <label for="tank1">tank</label>
+				<input type="radio" name="player1" id="melee1" value="melee"> <label for="melee1">melee</label>
+			</div>
+			<div class="player-select">
+				<span>Player 2</span>
+				<input type="radio" name="player2" id="ranged2" value="ranged" checked> <label for="ranged2">Ranged</label>
+				<input type="radio" name="player2" id="tank2" value="tank"> <label for="tank2">tank</label>
+				<input type="radio" name="player2" id="melee2" value="melee"> <label for="melee2">melee</label>
+			</div>
+			<div class="start-control">
+				<button type="button" onclick="startFight()">Fight!</button>
+			</div>
+		</form>
+	</div>
+	<div id="combat-log"></div>
+</body>
+</html>
