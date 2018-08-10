@@ -101,7 +101,6 @@ function combatDecision(players) {
 		for (otherPlayer in players) {
 			var otherPlayerObj = players[otherPlayer];
 			if (playerObj != otherPlayerObj) {
-//				writeToLog(playerObj.location+':'+otherPlayerObj.location);
 				if(playerObj.location > otherPlayerObj.location) {
 					var largeLoc = playerObj.location;
 					var smallLoc = otherPlayerObj.location;
@@ -137,7 +136,7 @@ function initPlayers() {
 	
 	writeToLog('Player 1 template: '+player1Template, false);
 	var player1 = initPlayer(player1Template);
-	player1.name = 'Kitten';
+	player1.name = $('input#player1').val();
 	
 	writeToLog('', false);
 	var statsTable = 'Player 1 stats: <br /><table><tbody>';
@@ -152,7 +151,7 @@ function initPlayers() {
 	
 	writeToLog('Player 2 template: '+player2Template, false);
 	var player2 = initPlayer(player2Template);
-	player2.name = 'Boss';
+	player2.name = $('input#player2').val();
 	
 	statsTable = 'Player 2 stats: <br /><table><tbody>';
 	statsTable += '<tr><td>Name</td><td>'+player2.name+'</td></tr>';
@@ -172,6 +171,13 @@ function initPlayers() {
 }
 
 function initPlayer(template) {
+	var basic = {
+		'name': '',
+		'health': 100,
+		'moveSpeed': 10,
+		'damage': 20,
+		'strikeRange': 100
+	};
 	var ranged = {
 		'strikeRange':100,
 		'health':50,
@@ -204,6 +210,8 @@ function initPlayer(template) {
 			return melee;
 			break;
 		default:
+			return basic;
+			break;
 	}
 	
 }

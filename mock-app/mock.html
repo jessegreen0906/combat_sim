@@ -40,6 +40,10 @@
 		#combat-log td {
 			border: solid black 1px;
 		}
+		
+		.input-wrapper {
+			width: 100%;
+		}
 	</style>
 	
 	<script
@@ -48,7 +52,7 @@
 		crossorigin="anonymous"></script>
 	
 	<script src="logic.js">
-		
+	
 
 	</script>
 	
@@ -59,15 +63,40 @@
 		<form>
 			<div class="player-select">
 				<span>Player 1</span>
-				<input type="radio" name="player1" id="ranged1" value="ranged" checked> <label for="ranged1">Ranged</label>
-				<input type="radio" name="player1" id="tank1" value="tank"> <label for="tank1">tank</label>
-				<input type="radio" name="player1" id="melee1" value="melee"> <label for="melee1">melee</label>
+				<div class="input-wrapper">
+					<label for="player1">Player name: </label><input type="text" id="player1" />
+				</div>
+				<div class="input-wrapper">
+					<label for="swole1">Swole & slow</label><input id="swole1" type="range" min="-1" max="1"><label for="swole1">Fast & frail</label>
+				</div>
+				<div class="input-wrapper">
+					<label for="weapon1">Melee</label><input id="weapon1" type="range" min="0" max="1"><label for="weapon1">Ranged</label>
+				</div>
+				<div class="input-wrapper">
+					<label for="armor1">What am I a bitch? More attack power!</label><input id="armor1" type="range" min="0" max="1"><label for="armor1">Extra armor</label>
+				</div>
+				<!--<input type="radio" name="player1" id="ranged1" value="ranged" checked> <label for="ranged1">Ranged</label>-->
+				<!--<input type="radio" name="player1" id="tank1" value="tank"> <label for="tank1">tank</label>-->
+				<!--<input type="radio" name="player1" id="melee1" value="melee"> <label for="melee1">melee</label>-->
+				
 			</div>
 			<div class="player-select">
 				<span>Player 2</span>
-				<input type="radio" name="player2" id="ranged2" value="ranged" checked> <label for="ranged2">Ranged</label>
-				<input type="radio" name="player2" id="tank2" value="tank"> <label for="tank2">tank</label>
-				<input type="radio" name="player2" id="melee2" value="melee"> <label for="melee2">melee</label>
+				<div class="input-wrapper">
+					<label for="player2">Player name: </label><input type="text" id="player2" />
+				</div>
+				<div class="input-wrapper">
+					<label for="swole2">Swole & slow</label><input id="swole2" type="range" min="-100" max="100"><label for="swole1">Fast & frail</label>
+				</div>
+				<div class="input-wrapper">
+					<label for="weapon1">Melee</label><input id="weapon1" type="range" min="0" max="1"><label for="weapon1">Ranged</label>
+				</div>
+				<div class="input-wrapper">
+					<label for="armor1">What am I a bitch? More attack power!</label><input id="armor1" type="range" min="0" max="1"><label for="armor1">Extra armor</label>
+				</div>
+				<!--<input type="radio" name="player2" id="ranged2" value="ranged" checked> <label for="ranged2">Ranged</label>-->
+				<!--<input type="radio" name="player2" id="tank2" value="tank"> <label for="tank2">tank</label>-->
+				<!--<input type="radio" name="player2" id="melee2" value="melee"> <label for="melee2">melee</label>-->
 			</div>
 			<div class="start-control">
 				<button type="button" onclick="startFight()">Fight!</button>
