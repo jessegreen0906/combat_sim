@@ -1,4 +1,4 @@
-const MOVEMENT_ANIMATION_RATIO = 1;
+const MOVEMENT_ANIMATION_RATIO = 1/60;
 
 var canvas = document.getElementById('battlefield');
 var stage = new createjs.Stage(canvas);
@@ -27,6 +27,11 @@ function init() {
 function handleTick(event) {
 	// console.log('tick');
 	var player1 = stage.getChildByName('player1');
-	player1.x += MOVEMENT_ANIMATION_RATIO;
+	move(player1);
+	attack(player1);
 	stage.update();
+}
+
+function attack(player) {
+
 }

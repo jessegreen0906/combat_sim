@@ -1,0 +1,40 @@
+/*
+ * Copyright (c) 2018. Code contained in this file is written by and the intellectual property of Jesse Green except where otherwise noted. Reuse for educational, open source or reference uses is freely available provided reference to the original source is cited with use. Reuse for commercial purposes is prohibited without the consent of the owner.
+ */
+
+body {
+	margin: 0;
+	background: gray;
+}
+
+main {
+	height: 100vh;
+	min-height: 500px;
+	width: 100vw;
+	min-width: 750px;
+	
+	padding: 10%;
+	box-sizing: border-box;
+	
+	display: flex;
+	
+}
+
+canvas {
+	max-height: 100%;
+	width: 50%;
+	background: #00B7FF;
+	
+	flex-grow: 1;
+	margin-right: 2.5%;
+}
+
+.debug-log {
+	flex-grow: 1;
+	
+	background-color: #0E0E0E;
+	color: aquamarine;
+	font-family: "Arial Unicode MS";
+	overflow: scroll;
+	scroll
+}
