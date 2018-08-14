@@ -7,15 +7,41 @@ import DeathBlowClient from '../../client/build/DeathBlowClient';
 
 class DeathBlowServer {
 	constructor() {
-		this.sessionList = [];
+		this.sessionList = {};
 	}
 	
 	createSession () {
 		var session = new Session();
-		this.sessionList.push(session);
+		
+		this.sessionList[session.id] = session;
 		
 		DeathBlowClient.writeToLog('Server session created');
-		return true;
+		return session.id;
+	}
+	
+	startSession (sessionId) {
+		DeathBlowClient.writeToLog('Starting session');
+		this.sessionList[sessionId].fillPlayers();
+		this.sessionList[sessionId].startSession();
+	}
+	
+	addPlayer (name, sessionId) {
+		var player = {};
+		player.name = name;
+		this.sessionList[sessionId].addPlayer(player);
+	}
+	
+	getGameStep (sessionId, stepId) {
+		var step = {};
+		var i = 0;
+		while(Object.keys(step).length <= 0) {
+			step = this.sessionList[sessionId].game.getGameStep(stepId);
+			i++;
+			if (i > 500) {
+				step = {"gameEnded":true};
+			}
+		}
+		return step;
 	}
 	
 	static createSession() {

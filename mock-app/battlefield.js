@@ -8,10 +8,7 @@ function init() {
 	console.log('Canvas is : '+canvas);
 	console.log('Stage is :'+stage);
 	
-	//Create a Shape DisplayObject.
-	// var rectangle = new createjs.Shape();
-	// rectangle.graphics.beginFill('blue').drawRect(190,85,5,10);
-	// stage.addChild(rectangle);
+	// Create a Shape DisplayObject.
 	var player1 = new createjs.Shape();
 	player1.graphics.beginFill('red').drawRect(0,0,5,10);
 	player1.x = 5;

@@ -22,7 +22,11 @@ class DeathBlowClient {
 		// Initialise session with server
 		// TODO: Mocking this for now. In the future, turn this into a full server implentation.
 		this.dBS = new DeathBlowServer;
-		this.dBS.createSession();
+		this.sessionId = this.dBS.createSession();
+		
+		DeathBlowClient.writeToLog('Session ID: '+this.sessionId);
+		
+		this.dBS.addPlayer('Player 1', this.sessionId);
 		
 		
 		// Initialise Renderer
@@ -32,6 +36,26 @@ class DeathBlowClient {
 		} else {
 			DeathBlowClient.writeToError('No canvas found');
 		}
+		
+		this.dBS.startSession(this.sessionId);
+		
+		var endGame = false;
+		var step = 0;
+		var stepData;
+		
+		while(!endGame) {
+			DeathBlowClient.writeToLog('Attempting to retrieve game step #'+step);
+			stepData = this.dBS.getGameStep(this.sessionId, step);
+			if(step == 0) {
+				this.renderer.initialRender(stepData);
+			} else {
+				this.renderer.renderStep(stepData);
+			}
+			step++;
+			endGame = stepData.gameEnd;
+		}
+		
+		DeathBlowClient.writeToLog('Game ending');
 	}
 	
 	static writeToError(output) {
